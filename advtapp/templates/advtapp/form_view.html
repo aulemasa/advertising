@@ -1,0 +1,35 @@
+<html>
+<head lang="pl">
+    <meta charset="UTF-8">
+    <title></title>
+    {%load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   
+</head>
+<body>
+<div class="row">
+	 <div class="col-md-4 col-md-offset-4">
+         <h4>Dodanie ogłoszenia:</h4>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table class="table table-striped">
+            {{form.as_table}}
+        </table>
+        <button type="submit" class="btn btn-success btn-lg">Dodaj</button>
+		<a href="/main_page" role="button" class="btn btn-danger btn-lg">Anuluj</a>
+    </form>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://jquery-ui.googlecode.com/svn-history/r3982/trunk/ui/i18n/jquery.ui.datepicker-pl.js"></script>
+<script>
+$.datepicker.setDefaults($.datepicker.regional['pl']);
+$(function() {
+	$( "#id_data_pub").datepicker({
+		dateFormat: "yy-mm-dd"});
+	});
+ </script>
+</body>
+</html>
