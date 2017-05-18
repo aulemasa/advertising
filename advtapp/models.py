@@ -14,7 +14,7 @@ class Advertisement(models.Model):
     author = models.ForeignKey(User)
 
     def __unicode__(self):
-        return "{text}".format(tekst=self.text)
+        return "{text}".format(text=self.text)
 
     class Meta:
         ordering = ['date_pub']
